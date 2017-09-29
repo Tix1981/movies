@@ -22,15 +22,18 @@ class MoviesController extends Controller
     }
 
     public function store (Request $request) {
+        $rules = [
+            'title' => 'required | min:2',
+            'storyline' => 'required | min:15 | max:3000',
+            'director' => 'required | min:2',
+            'genre' => 'required | min:2',
+            'year' => 'required | integer | between:1900,{year}'
+        ];
+        $now = new \Carbon\Carbon();
+        $rules['year']= str_replace('{year}', $now->year, $rules['year']);
 
         $request->validate(
-            [
-                'title' => 'required | min:2',
-                'storyline' => 'required | min:15',
-                'director' => 'required | min:2',
-                'genre' => 'required | min:2',
-                'year' => 'required | integer | between:1900,2050'
-            ]
+            $rules
         );
 
         $movie = Movie::create($request->all());
