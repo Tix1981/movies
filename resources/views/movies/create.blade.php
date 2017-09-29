@@ -42,8 +42,9 @@
             <textarea type="text" class="form-control" id="storyline" name="storyline"></textarea>
             @include('partials.error-message', ['fieldTitle' => 'storyline'])
         </div>
-
-        <button type="submit" class="btn btn-default">Submit</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </form>
 
 @endsection
