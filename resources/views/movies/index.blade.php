@@ -14,7 +14,7 @@
           <a href="{{ route('single-movie', ['id' => $movie->id ]) }}"><h2 class="blog-post-title">{{ $movie->title }}</h2></a>
           <p class="blog-post-meta">Year: {{ $movie->year }}; Directed by: {{ $movie->director }}; Genre: {{ $movie->genre }}</p>
 
-          <p>{{ $movie->storyline }}</p>
+          <p>{{ Illuminate\Support\Str::words($movie->storyline, 50) }}</p>
         </div><!-- /.blog-post -->
     @endforeach
 @endsection
