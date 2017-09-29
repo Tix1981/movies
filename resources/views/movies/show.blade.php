@@ -11,7 +11,7 @@
 @section('content')
     <div class="blog-post">
       <h2 class="blog-post-title">{{ $movie->title }}</h2>
-      <p class="blog-post-meta">Year: {{ $movie->year }}; Directed by: {{ $movie->director }}; Genre: {{ $movie->genre }}</p>
+      <p class="blog-post-meta">Year: {{ $movie->year }}; Directed by: {{ $movie->director }}; Genre: <a href="{{ route('movies-by-genre', ['genre' => strtolower($movie->genre)]) }}">{{ $movie->genre }}</a></p>
 
       <p>{{ $movie->storyline }}</p>
     </div><!-- /.blog-post -->
