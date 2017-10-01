@@ -15,4 +15,10 @@ class Movie extends Model
 
     }
 
+    public static function sidebarMovies () {
+
+        return self::orderBy('created_at', 'desc')->limit(5)->get();
+
+    }
+
 }
